@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_price_prices",
+  "info": {
+    "displayName": "Price",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Pricing": {
+      "type": "enumeration",
+      "enum": [
+        "Small",
+        "Medium ",
+        "Large"
+      ]
+    },
+    "Rupee": {
+      "type": "integer"
+    }
+  }
+}
