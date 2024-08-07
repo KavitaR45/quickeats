@@ -16,6 +16,38 @@
     },
     "Rupee": {
       "type": "integer"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Sides": {
+      "displayName": "Side",
+      "type": "component",
+      "repeatable": true,
+      "component": "side.side"
+    },
+    "Drinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "side.side"
+    },
+    "Desserts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "side.side"
+    },
+    "Extra": {
+      "type": "component",
+      "repeatable": true,
+      "component": "side.side"
     }
   }
 }

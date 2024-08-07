@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_side_sides",
+  "info": {
+    "displayName": "Side"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

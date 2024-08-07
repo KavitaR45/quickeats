@@ -15,13 +15,13 @@
     "Name": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
-    "product": {
+    "products": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::product.product",
-      "inversedBy": "tags"
+      "mappedBy": "tag"
     }
   }
 }

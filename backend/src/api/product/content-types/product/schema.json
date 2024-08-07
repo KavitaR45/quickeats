@@ -15,7 +15,7 @@
     "Name": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "FeaturedImage": {
       "type": "media",
@@ -28,17 +28,17 @@
         "audios"
       ]
     },
-    "categories": {
+    "category": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::category.category",
-      "mappedBy": "product"
+      "inversedBy": "products"
     },
-    "tags": {
+    "tag": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::tag.tag",
-      "mappedBy": "product"
+      "inversedBy": "products"
     },
     "Description": {
       "type": "text"
