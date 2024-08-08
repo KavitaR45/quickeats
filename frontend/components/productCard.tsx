@@ -1,28 +1,51 @@
-import {
-    Card,
-    CardContent,
-} from "@/components/ui/card"
+import React from 'react';
+import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 import { Plus } from 'lucide-react';
-import { Button } from "./ui/button"
-export default function ProductCard() {
+import { Button } from "./ui/button";
+import { Product } from "@/type/types";
+
+interface ProductCardProps {
+    data: Product["attributes"];
+}
+
+export default function ProductCard({ data }: ProductCardProps) {
     return (
-        <>
-            <Card>
-                <CardContent className="flex justify-between gap-8">
-                    <img className="w-full md:w-1/2" src="http://localhost:3000/images/coupon/coupon_1.jpeg" />
-                    <div className="w-full md:w-1/2 gap-2 flex flex-col">
-                        <div className="flex justify-between">
-                            <h3 className="text-2xl font-bold uppercase">Chicken Whopper</h3>
-                            <img src="/images/non_veg.png" />
+        <Card className="shadow-lg ">
+            <CardContent className='p-6'>
+                <div className="flex gap-4 items-center">
+                    <div className="w-2/6">
+                        <Image
+                            alt="Product"
+                            width={287}
+                            height={134}
+                            className="h-auto object-cover rounded"
+                            src={data.FeaturedImage.data.attributes.url}
+                        />
+                    </div>
+                    <div className="flex flex-col justify-between w-8/12 gap-2">
+                        <div className="flex justify-between items-start gap-4">
+                            <h3 className="text-xl font-bold uppercase">{data.Name}</h3>
+                            <Image
+                                className="w-5 h-5 object-contain"
+                                alt="Tag"
+                                width={20}
+                                height={20}
+                                src={data.tag.data.attributes.Name === "Veg" ? "/images/veg.svg" : "/images/non_veg.png"}
+                            />
                         </div>
-                        <p>Signature Whopper</p>
-                        <div className="flex justify-between">
-                            <p className="text-2xl font-bold uppercase">Rs. 199/-</p>
-                            <Button variant="outline">Add<Plus className="ml-2 h-4 w-4" /></Button>
+
+                        <p className="text-sm text-gray-600">{data.Description}</p>
+
+                        <div className="flex justify-between items-center mt-2">
+                            <p className="text-xl font-semibold">₹{data.Price[0].Rupee}</p>
+                            <Button variant="outline" className="flex items-center">
+                                Add <Plus className="ml-2 h-4 w-4" />
+                            </Button>
                         </div>
                     </div>
-                </CardContent>
-            </Card>
-        </>
-    )
+                </div>
+            </CardContent>
+        </Card>
+    );
 }
