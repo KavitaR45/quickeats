@@ -37,6 +37,7 @@ export default function Home() {
   }, [])
   console.log("CATEGORY", productCard)
   return (
+    <>
     <main className="flex min-h-screen flex-col items-center justify-start">
       <section className="py-8 pt-0">
         <Carousel plugins={[
@@ -80,5 +81,6 @@ export default function Home() {
         </Carousel>
       </section>
     </main>
+    </>
   );
 }

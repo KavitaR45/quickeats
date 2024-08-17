@@ -6,7 +6,7 @@ import { Plus } from 'lucide-react';
 import { Button } from "./ui/button";
 import { Product } from "@/type/types";
 import { useCart } from '@/context/cartContext';
-
+import {toast } from 'sonner'
 interface ProductCardProps {
   prodData: Product;
 }
@@ -19,8 +19,7 @@ export default function ProductCard({ prodData }: ProductCardProps) {
     tag: { data: { attributes: { Name: '' } } },
     Description: ''
   };
-  const { addToCart,cartItems } = useCart();
-  console.log("CART ITEMS",cartItems)
+  const { addToCart } = useCart();
   const handleAddToCart = () => {
     addToCart({
       id: prodData.id,
@@ -30,8 +29,10 @@ export default function ProductCard({ prodData }: ProductCardProps) {
       tag: data.tag.data.attributes.Name,
       quantity: 1,  // Initial quantity set to 1
     });
+    toast.success('Added to cart')
   };
   return (
+    <>
     <Card className="shadow-lg h-full">
       <CardContent className='p-6 h-full'>
         <div className="flex gap-4 items-start h-full">
@@ -73,5 +74,6 @@ export default function ProductCard({ prodData }: ProductCardProps) {
         </div>
       </CardContent>
     </Card>
+    </>
   );
 }
