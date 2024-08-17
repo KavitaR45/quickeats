@@ -86,4 +86,5 @@ export interface CartContextType {
   cartItems: CartItem[];
   addToCart: (product: CartItem) => void;
   removeFromCart: (productId: number) => void;
+  updateQuantity: (productId: number, delta: number) => void; 
 }

@@ -24,11 +24,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const removeFromCart = (productId: number) => {
         setCartItems((prevItems) => prevItems.filter(item => item.id !== productId));
     };
+    const updateQuantity = (productId: number, delta: number) => {
+        setCartItems((prevItems) => 
+            prevItems.map(item =>
+                item.id === productId
+                    ? { ...item, quantity: Math.max(item.quantity + delta, 1) } // Ensure quantity doesn't go below 1
+                    : item
+            )
+        );
+    };
 
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
-            {children}
-        </CartContext.Provider>
+        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity }}>
+        {children}
+    </CartContext.Provider>
     );
 }
 

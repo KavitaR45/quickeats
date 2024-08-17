@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Autoplay from "embla-carousel-autoplay"
-
+import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import {
   Carousel,
@@ -70,16 +70,14 @@ export default function Home() {
           <CarouselNext />
         </Carousel>
       </section>
-      <section className="py-8 px-20 w-full">
-        <h2 className="text-3xl font-bold uppercase mb-5">Best Sellers</h2>
-        <Carousel>
-          <CarouselContent>
-            {productCard && productCard.map((x, i) => <CarouselItem className="md:basis-1/2 lg:basis-1/3" key={"Product_Best_Seller" + i}><ProductCard prodData={x} /></CarouselItem>)}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </section>
+      <section className="py-8 px-4 sm:px-8 lg:px-20 w-full">
+      <h2 className="text-3xl font-bold uppercase mb-5">Our Products</h2>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {productCard && productCard.map((x) => (
+            <ProductCard prodData={x} />
+        ))}
+      </div>
+    </section>
     </main>
     </>
   );
