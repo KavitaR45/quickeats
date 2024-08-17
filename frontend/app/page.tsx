@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/carousel";
 import { STRAPIGET } from "@/api/api";
 import ProductCard from "@/components/productCard";
-import { CategoryInterface,Product } from "@/type/types";
+import { CategoryInterface, Product } from "@/type/types";
 export interface Category {
   id: number;
   name: string;
@@ -73,7 +73,7 @@ export default function Home() {
         <h2 className="text-3xl font-bold uppercase mb-5">Best Sellers</h2>
         <Carousel>
           <CarouselContent>
-          {productCard && productCard.map((x, i) => <CarouselItem className="md:basis-1/2 lg:basis-1/3" key={"Product_Best_Seller" + i}><ProductCard data={x.attributes} /></CarouselItem>)}
+            {productCard && productCard.map((x, i) => <CarouselItem className="md:basis-1/2 lg:basis-1/3" key={"Product_Best_Seller" + i}><ProductCard prodData={x} /></CarouselItem>)}
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />

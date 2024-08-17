@@ -72,4 +72,18 @@ export interface Product {
     id: number;
     attributes: CategoryAttributes;
   }
-  
+  // types/cart.ts
+export interface CartItem {
+  id: number;
+  Name: string;
+  Price: { Rupee: number }[];
+  FeaturedImage: string;
+  tag: string;
+  quantity: number;
+}
+
+export interface CartContextType {
+  cartItems: CartItem[];
+  addToCart: (product: CartItem) => void;
+  removeFromCart: (productId: number) => void;
+}
