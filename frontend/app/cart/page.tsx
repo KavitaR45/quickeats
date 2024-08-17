@@ -82,6 +82,11 @@ export default function CartPage() {
                             </tbody>
                         </table>
                     </div>
+                    <div className="mt-6 flex justify-end">
+                        <Button asChild>
+                            <Link href="/checkout">Proceed to Checkout</Link>
+                        </Button>
+                    </div>
                 </>
             ) : (
                 <div className="flex flex-col items-center justify-center h-screen">
